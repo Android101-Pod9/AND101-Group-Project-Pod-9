@@ -29,7 +29,7 @@ The following REQUIRED files are included:
   - [x] Our initial brainstorming ideas (6+ ideas)
   - [x] 5-category evaluation of our top 3 ideas
   - [x] Final app idea chosen
-- [] Included 📄 `project_spec.md`, which contains:
+- [x] Included 📄 `project_spec.md`, which contains:
   - [x] App Overview: Description and evaluation
   - [x] App Spec: User features, Chosen API(s), User Interactions
   - [x] Wireframe image(s)

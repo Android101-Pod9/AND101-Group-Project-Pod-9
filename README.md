@@ -3,7 +3,7 @@
 Submitted by:
 - **Suharta Rudra**
 - **Zainab Sirajo**
-- **Vishva Koladia**
+- **Vishva Koladiya**
 - **Esther Williams**
 
 Time spent: **X** hours spent in total

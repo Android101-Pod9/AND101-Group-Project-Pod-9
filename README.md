@@ -1,4 +1,4 @@
-# AND101 Milestone 1 - **Team/App Name**
+# AND101 Milestone 1 - **ScreenSync**
 
 Submitted by:
 - **Suharta Rudra**

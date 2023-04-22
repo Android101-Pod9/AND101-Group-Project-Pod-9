@@ -6,7 +6,7 @@ Submitted by:
 - **Vishva Koladiya**
 - **Esther Williams**
 
-Time spent: **X** hours spent in total
+Time spent: **6** hours spent in total
 
 ## Summary
 

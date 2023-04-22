@@ -58,7 +58,7 @@ Group Member Ideas
 
 # App Evaluation
 
-**Movie App**
+## **Movie App**
 ### Mobile: 
 It can give release dates (can add it to a calender)
 It's more accesible as an app
@@ -79,7 +79,7 @@ The average user would probably use it every couple of months.
 If we add dates to calender and notifications it would take much longer to do maybe 2 months, 
 the stripped down version would still show movies, movie theatres associated with them and possibly the tickets to those movies and it would still be useful.
 
-**Food App** 
+## **Food App** 
 Essentially ask the user for 3 ingredients, calorie restrictions and maybe food restrictions if you're vegetarian, can't have gluten, etc. and then provide recipes from that information (library keywords but using ingredients)
 
 Mobile: If you're in the kitchen, you don't really want to have your laptop there, so we can display the recipe on the app and make it more accesible such as adding a weekly reminder notification to make a meal plan for the week.
@@ -100,7 +100,7 @@ We think it wouldn't be too difficult to work on by the deadline, we should be a
 
 we think it would be fun
 
-**Job App** 
+## **Job App** 
 job browsing, showing job information but maybe also with information about that particular job
 ### Mobile: 
 It'll be easier to look through the app, so you can have job notifications based on the types of job that you're interested in which you can't do well on a website

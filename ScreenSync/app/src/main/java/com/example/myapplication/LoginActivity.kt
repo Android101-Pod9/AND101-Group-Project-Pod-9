@@ -20,6 +20,7 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var loginButton: Button
     lateinit var guest: Button
     lateinit var toSignUp: TextView
+    lateinit var guest: Button
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -53,6 +54,12 @@ class LoginActivity : AppCompatActivity() {
         }
 
 
+        guest.setOnClickListener() {
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        }
+
+
     }
 
 
@@ -66,8 +73,9 @@ class LoginActivity : AppCompatActivity() {
         }
 
 
-        firebaseAuth.createUserWithEmailAndPassword(username, password).addOnCompleteListener(this) {
+        firebaseAuth.signInWithEmailAndPassword(username,password).addOnCompleteListener(this) {
             if(it.isSuccessful) {
+
 
 
                 Toast.makeText(this, "Login Successful!", Toast.LENGTH_SHORT).show()
@@ -77,6 +85,14 @@ class LoginActivity : AppCompatActivity() {
 
 
             } else {
+
+                val intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
+                Toast.makeText(this, "Login Successful!", Toast.LENGTH_SHORT).show()
+                finish()
+            }
+            else {
+
                 Toast.makeText(this, "Login Failed.", Toast.LENGTH_SHORT).show()
             }
 

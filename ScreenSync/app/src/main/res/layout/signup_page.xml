@@ -24,16 +24,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="43dp"
-        android:layout_marginTop="218dp"
-        android:layout_marginEnd="272dp"
-        android:layout_marginBottom="486dp"
+        android:layout_marginTop="20dp"
         android:text="Email:"
         android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/signupText"
         app:layout_constraintVertical_bias="1.0" />
 
     <TextView
@@ -55,16 +52,14 @@
         android:id="@+id/userInput"
         android:layout_width="337dp"
         android:layout_height="43dp"
-        android:layout_marginStart="43dp"
-        android:layout_marginTop="266dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="31dp"
-        android:layout_marginBottom="422dp"
         android:hint="Enter a valid email address"
         android:textSize="12sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/usernameText"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/passInput"
@@ -101,12 +96,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="86dp"
-        android:layout_marginTop="570dp"
+        android:layout_marginTop="25dp"
         android:layout_marginEnd="87dp"
         android:layout_marginBottom="142dp"
         android:text="Already Have an Account? Login Here!"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/signupButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+       />
 </androidx.constraintlayout.widget.ConstraintLayout>

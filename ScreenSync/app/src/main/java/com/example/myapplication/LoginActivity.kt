@@ -23,6 +23,7 @@ class LoginActivity : AppCompatActivity() {
     lateinit var guest: Button
 
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.login_page)
@@ -51,13 +52,17 @@ class LoginActivity : AppCompatActivity() {
         guest.setOnClickListener() {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
+
         }
 
 
         guest.setOnClickListener() {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
+
         }
+
+
 
 
     }
@@ -77,6 +82,16 @@ class LoginActivity : AppCompatActivity() {
             if(it.isSuccessful) {
 
 
+                val intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
+
+                Toast.makeText(this, "Login Successful!", Toast.LENGTH_SHORT).show()
+
+
+
+
+
+
 
                 Toast.makeText(this, "Login Successful!", Toast.LENGTH_SHORT).show()
 
@@ -90,6 +105,7 @@ class LoginActivity : AppCompatActivity() {
                 startActivity(intent)
                 Toast.makeText(this, "Login Successful!", Toast.LENGTH_SHORT).show()
                 finish()
+
             }
             else {
 

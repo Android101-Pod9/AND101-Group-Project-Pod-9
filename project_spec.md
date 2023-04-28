@@ -46,11 +46,17 @@ the stripped down version would still show movies, movie theatres associated wit
 
 Required Features:
 
-- being able to add movies from the search
-- filter based on genre(s)
-- recommend movies  based on the filter
+- being able to add movies from the search into a watchlist 
+- filter based on genre(s) (using dropdown button)
+    - have the genre filter let you pick more than one genre
+- recommend movies  based on the filter (search bar and search button)
 - show Release dates of upcoming movies
-- having movies already presented in the beginning
+- having movies already presented in the beginning (base list of movies when the user first goes into the app )
+- home page
+- watchlist page
+- detailed info page
+
+
 
 Stretch Features:
 - notifications when tickets open up
@@ -85,6 +91,7 @@ Required Feature
     - **button to go back to the search**
 - **filter based on genre(s)**
   - => **textbox or drop down (maybe start with a drop down and then do a textbox later**
+  - be able to select more than one genre
   - **search button once the filter is selected or typed**
 - **recommend movies  based on the filter**
   - => **see above**
@@ -93,10 +100,22 @@ Required Feature
       - when it gives you more info it can you take you to a seperate page with the info
       - you would need a back button to go back to the main page
       - there would be a total of 3 pages (list, main, the more info page)
+~~- **show base list of movies before user searches**~~
+    - the main user action would be going back to the home screen after you search, aka you search and the screen changes to the search results but you should be able to click back to go to the home
+- **watchlist page**
+    - have a button at the bottom of the screen that shoes yuo the watchlist
+- **home page**
+    - have a button on the bottom of the screen that shows you the watchlist
+    - when you search in the "home page" the screen will change to show only the search results 
+    -  when you show the search results you should have a back button that you can click to go back to the original home suggestions
+- **detailed info page**
+    - have a back button from the detailed info page or maybe just have it so you can click the home or watch list button
+	- display title, movie poster, release date, and movie genere 
+ 
 
 Stretch Feature
 // leave for later if we decide to add these features
-- **PRIORITY STRETCH: LOGIN PAGE***
+- PRIORITY STRETCH: LOGIN/SIGN UP PAGE***~~
 - **notifications when tickets open up**
     - => **list result of user action here**
 - **showing location of the movie theatre**
@@ -107,7 +126,7 @@ Stretch Feature
   - => **list result of user action here**
 - **give plot summary **
   - => **list result of user action here**
-  - ...
+- **have movie search suggestions as the user types in the search bar**
 
 
 ## Wireframes
@@ -137,6 +156,11 @@ Here's a place for any other notes on the app, it's creation
 process, or what you learned this unit!  
 
 For Milestone 2, include **2+ GIFs** of the build process here!
+![](https://i.imgur.com/8X7r2WG.gif)
+![](https://i.imgur.com/x3eQQ1w.gif)
+![](https://i.imgur.com/4Y9wp5M.gif)
+
+
 
 ## License
 

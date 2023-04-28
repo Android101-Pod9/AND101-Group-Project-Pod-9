@@ -35,7 +35,7 @@ class MovieAdapter(private val movieList: List<Movie>) :
 
         holder.addButton.setOnClickListener {
             // Add the movie to the watchlist
-            (holder.itemView.context as MainActivity).addMovie(movie)
+            (holder.itemView.context as WatchList).addMovie(movie)
         }
     }
 

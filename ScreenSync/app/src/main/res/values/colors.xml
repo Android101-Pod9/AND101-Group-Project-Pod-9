@@ -7,4 +7,12 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!-- COLOR PALLETE -->
+    <color name="screen_sync_black">#000505</color>
+    <color name="purple">#3B3355</color>
+    <color name="light_purple">#5D5D81</color>
+    <color name="greyish_purple">#BFCDE0</color>
+    <color name="screen_sync_white">#FEFCFD</color>
+
 </resources>

@@ -48,7 +48,7 @@
         app:layout_constraintTop_toBottomOf="@id/Popular_list"
         android:textSize="20sp" />
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
+    <!--<com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/navigation_bar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -57,7 +57,18 @@
         app:menu="@menu/menu_navigation"
         >
 
-    </com.google.android.material.bottomnavigation.BottomNavigationView>
+    </com.google.android.material.bottomnavigation.BottomNavigationView>-->
+
+
+
+    <Button
+        android:id="@+id/toWatchlist"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Watchlist"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
 
 
 

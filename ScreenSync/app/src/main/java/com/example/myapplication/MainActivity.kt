@@ -1,8 +1,10 @@
 package com.example.myapplication
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Button
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -17,6 +19,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var comingSoonPosterList: MutableList<String>
     private lateinit var rvMovie: RecyclerView
     private lateinit var rvMovie2: RecyclerView
+    private lateinit var toWatchList: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,15 +30,24 @@ class MainActivity : AppCompatActivity() {
         comingSoonMovieNameList = mutableListOf()
         rvMovie = findViewById(R.id.Popular_list)
         rvMovie2 = findViewById(R.id.NewlyAdded_list)
+       toWatchList = findViewById(R.id.toWatchlist)
         getMovieURL()
         Log.d("getMovieURL", "movie poster URL set")
+
+
+        toWatchList.setOnClickListener() {
+            val intent = Intent(this, WatchList::class.java)
+            startActivity(intent)
+
+        }
+
 
 
     }
 
     private fun getMovieURL() {
         val client = AsyncHttpClient()
-        val iMDBkey = "k_wcieb5la"
+        val iMDBkey = "k_uv3vgmx4"
         val url = "https://imdb-api.com/en/API/MostPopularMovies/" + iMDBkey
         client[url, object : JsonHttpResponseHandler() {
             override fun onSuccess(

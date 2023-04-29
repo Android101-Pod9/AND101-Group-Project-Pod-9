@@ -73,19 +73,7 @@ class LoginActivity : AppCompatActivity() {
                 Toast.makeText(this, "Login Successful!", Toast.LENGTH_SHORT).show()
 
                 finish()
-            }
-
-
-
-
-
-
-
-
-            } 
-
-
-            else {
+            } else {
                 Toast.makeText(this, "Login Failed.", Toast.LENGTH_SHORT).show()
             }
 

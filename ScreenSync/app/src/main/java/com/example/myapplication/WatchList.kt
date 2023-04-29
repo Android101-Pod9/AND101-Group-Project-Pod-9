@@ -1,7 +1,9 @@
 package com.example.myapplication
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.LinearLayoutManager
 
@@ -11,6 +13,8 @@ class WatchList : AppCompatActivity() {
 
     // Get a reference to the recycler view
     private lateinit var recyclerView: RecyclerView
+
+    private lateinit var toHome : Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,6 +26,15 @@ class WatchList : AppCompatActivity() {
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = MovieAdapter(movieList)
         addMovie(movie1)
+
+
+        toHome = findViewById(R.id.toHome)
+
+
+        toHome.setOnClickListener() {
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     // Add a movie to the watchlist

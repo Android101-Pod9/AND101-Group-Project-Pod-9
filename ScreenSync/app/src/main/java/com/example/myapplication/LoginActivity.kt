@@ -52,14 +52,6 @@ class LoginActivity : AppCompatActivity() {
         guest.setOnClickListener() {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
-
-        }
-
-
-        guest.setOnClickListener() {
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
-
         }
 
 
@@ -81,7 +73,6 @@ class LoginActivity : AppCompatActivity() {
         firebaseAuth.signInWithEmailAndPassword(username,password).addOnCompleteListener(this) {
             if(it.isSuccessful) {
 
-
                 val intent = Intent(this, MainActivity::class.java)
                 startActivity(intent)
 
@@ -93,12 +84,8 @@ class LoginActivity : AppCompatActivity() {
 
 
 
-                Toast.makeText(this, "Login Successful!", Toast.LENGTH_SHORT).show()
-
-
-
-
             } 
+
             else {
 
                 Toast.makeText(this, "Login Failed.", Toast.LENGTH_SHORT).show()

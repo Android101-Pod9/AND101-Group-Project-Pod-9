@@ -13,7 +13,7 @@ class MovieAdapter(private val movieList: List<Movie>) :
     RecyclerView.Adapter<MovieAdapter.ViewHolder>() {
 
     // Inner class to hold the views for one item in the RecyclerView
-    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val titleTextView: TextView = itemView.findViewById(R.id.title_text_view)
         val posterImageView: ImageView = itemView.findViewById(R.id.poster_image_view)
         val addButton: Button = itemView.findViewById(R.id.add_button)

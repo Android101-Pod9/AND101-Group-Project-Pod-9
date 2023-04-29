@@ -23,6 +23,7 @@ class LoginActivity : AppCompatActivity() {
 
 
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.login_page)
@@ -80,7 +81,11 @@ class LoginActivity : AppCompatActivity() {
 
 
 
-            }
+
+
+
+            } 
+
             else {
 
                 Toast.makeText(this, "Login Failed.", Toast.LENGTH_SHORT).show()

@@ -20,7 +20,7 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var loginButton: Button
     lateinit var guest: Button
     lateinit var toSignUp: TextView
-    lateinit var guest: Button
+
 
 
 
@@ -95,18 +95,10 @@ class LoginActivity : AppCompatActivity() {
 
                 Toast.makeText(this, "Login Successful!", Toast.LENGTH_SHORT).show()
 
-                val intent = Intent(this, MainActivity::class.java)
-                startActivity(intent)
 
 
-            } else {
 
-                val intent = Intent(this, MainActivity::class.java)
-                startActivity(intent)
-                Toast.makeText(this, "Login Successful!", Toast.LENGTH_SHORT).show()
-                finish()
-
-            }
+            } 
             else {
 
                 Toast.makeText(this, "Login Failed.", Toast.LENGTH_SHORT).show()

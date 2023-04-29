@@ -6,19 +6,22 @@ Submitted by:
 - **Vishva Koladiya**
 - **Esther Williams**
 
-Time spent: **6** hours spent in total
+Time spent: **23** hours spent in total
 
 ## Summary
 
-This document provides an overview, project spec, and wireframes for our team's capstone project: An app that **short description of your app**
+This document provides an overview, project spec, and wireframes for our team's capstone project: An app that **gives you recommendations for movies that you can watch at a movie theatre. It also allows you to add movies your interested in into a watchlist**
 
-If we had to describe this milestone in three (3) emojis, they would be: **emojis here**
-
+If we had to describe this milestone in three (3) emojis, they would be: **🍿🎥🎞️**
 
 
 ## Milestone Requirements
 
 <!-- Please be sure to change the [ ] to [x] for any features you completed.  If a feature is not checked [x], you might miss the points for that item! -->
+The following REQUIRED features are completed:
+
+- [x] Assign features to each member of your group
+- [x] Establish a goal time for completing each feature
 
 The following REQUIRED features are completed:
 

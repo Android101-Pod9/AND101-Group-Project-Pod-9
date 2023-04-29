@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -24,9 +22,9 @@
         android:id="@+id/NewlyAdded_list"
         android:layout_width="411dp"
         android:layout_height="200dp"
-        android:layout_marginTop="304dp"
+        android:layout_marginTop="20dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/Popular_list" />
+        app:layout_constraintTop_toBottomOf="@+id/Coming_Soon_title" />
 
     <TextView
         android:id="@+id/Popular_title"
@@ -50,12 +48,18 @@
         app:layout_constraintTop_toBottomOf="@id/Popular_list"
         android:textSize="20sp" />
 
-    <View
-        android:layout_width="wrap_content"
-        android:layout_height="100dp"
-        android:text="Hello World!"
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/navigation_bar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-         />
+        app:menu="@menu/menu_navigation"
+        >
 
-</LinearLayout>
+    </com.google.android.material.bottomnavigation.BottomNavigationView>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+

@@ -13,17 +13,24 @@ import okhttp3.Headers
 class MainActivity : AppCompatActivity() {
     private lateinit var movieNameList: MutableList<String>
     private lateinit var posterList: MutableList<String>
+    private lateinit var comingSoonMovieNameList: MutableList<String>
+    private lateinit var comingSoonPosterList: MutableList<String>
+    private lateinit var rvMovie: RecyclerView
+    private lateinit var rvMovie2: RecyclerView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         movieNameList = mutableListOf()
         posterList = mutableListOf()
-       // comingSoonPosterList = mutableListOf()
-      //  comingSoonMovieNameList = mutableListOf()
+        comingSoonPosterList = mutableListOf()
+        comingSoonMovieNameList = mutableListOf()
         rvMovie = findViewById(R.id.Popular_list)
-       // rvMovie2 = findViewById(R.id.NewlyAdded_list)
+        rvMovie2 = findViewById(R.id.NewlyAdded_list)
         getMovieURL()
         Log.d("getMovieURL", "movie poster URL set")
+
+
     }
 
     private fun getMovieURL() {
@@ -57,7 +64,7 @@ class MainActivity : AppCompatActivity() {
                 Log.d("Character Error", errorResponse)
             }
         }]
-        /* Coming Soon Part
+         //Coming Soon Part
         val ComingSoonURL = "https://imdb-api.com/en/API/ComingSoon/" + iMDBkey
         client[ComingSoonURL, object : JsonHttpResponseHandler() {
             override fun onSuccess(
@@ -85,5 +92,6 @@ class MainActivity : AppCompatActivity() {
             ) {
                 Log.d("Character Error", errorResponse)
             }
-        }] */
+        }]
+    }
 }

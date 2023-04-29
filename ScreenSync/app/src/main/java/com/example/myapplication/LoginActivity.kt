@@ -14,7 +14,6 @@ import com.google.firebase.ktx.Firebase
 class LoginActivity : AppCompatActivity() {
 
     private lateinit var firebaseAuth: FirebaseAuth
-
     lateinit var userInput: EditText
     private lateinit var passInput: EditText
     private lateinit var loginButton: Button
@@ -45,9 +44,7 @@ class LoginActivity : AppCompatActivity() {
             val intent = Intent(this, SignUpActivity::class.java)
             startActivity(intent)
 
-
         }
-
 
         guest.setOnClickListener() {
             val intent = Intent(this, MainActivity::class.java)
@@ -69,14 +66,15 @@ class LoginActivity : AppCompatActivity() {
             Toast.makeText(this, "Fields cannot be left blank.", Toast.LENGTH_SHORT).show()
         }
 
-
         firebaseAuth.signInWithEmailAndPassword(username,password).addOnCompleteListener(this) {
             if(it.isSuccessful) {
-
                 val intent = Intent(this, MainActivity::class.java)
                 startActivity(intent)
-
                 Toast.makeText(this, "Login Successful!", Toast.LENGTH_SHORT).show()
+
+                finish()
+            }
+
 
 
 
@@ -86,8 +84,8 @@ class LoginActivity : AppCompatActivity() {
 
             } 
 
-            else {
 
+            else {
                 Toast.makeText(this, "Login Failed.", Toast.LENGTH_SHORT).show()
             }
 

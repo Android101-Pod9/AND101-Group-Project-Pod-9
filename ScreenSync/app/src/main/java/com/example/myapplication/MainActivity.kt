@@ -2,33 +2,88 @@ package com.example.myapplication
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-//import androidx.recyclerview.widget.RecyclerView
-//import androidx.recyclerview.widget.LinearLayoutManager
-//import com.example.myapplication.Movie
-//import com.example.myapplication.MovieAdapter
-//
-class MainActivity : AppCompatActivity() {
-//    // An array to store the list of movies in the watchlist
-//    private val movieList = mutableListOf<Movie>()
-//
-//    // Get a reference to the recycler view
-//    private lateinit var recyclerView: RecyclerView
+import android.util.Log
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.codepath.asynchttpclient.AsyncHttpClient
+import com.codepath.asynchttpclient.callback.JsonHttpResponseHandler
+import okhttp3.Headers
 
+class MainActivity : AppCompatActivity() {
+    private lateinit var movieNameList: MutableList<String>
+    private lateinit var posterList: MutableList<String>
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-//        // Initialize the recycler view
-//        recyclerView = findViewById(R.id.watchlist_recycler_view)
-//        recyclerView.layoutManager = LinearLayoutManager(this)
-//        recyclerView.adapter = MovieAdapter(movieList)
+        movieNameList = mutableListOf()
+        posterList = mutableListOf()
+       // comingSoonPosterList = mutableListOf()
+      //  comingSoonMovieNameList = mutableListOf()
+        rvMovie = findViewById(R.id.Popular_list)
+       // rvMovie2 = findViewById(R.id.NewlyAdded_list)
+        getMovieURL()
+        Log.d("getMovieURL", "movie poster URL set")
     }
 
-//    // Add a movie to the watchlist
-//    fun addMovie(movie: Movie) {
-//        movieList.add(movie)
-//
-//        // Notify the adapter that a new movie has been added
-//        recyclerView.adapter?.notifyItemInserted(movieList.size - 1)
-//    }
+    private fun getMovieURL() {
+        val client = AsyncHttpClient()
+        val iMDBkey = "k_wcieb5la"
+        val url = "https://imdb-api.com/en/API/MostPopularMovies/" + iMDBkey
+        client[url, object : JsonHttpResponseHandler() {
+            override fun onSuccess(
+                statusCode: Int,
+                headers: Headers,
+                json: JsonHttpResponseHandler.JSON
+            ) {
+                val movieArray = json.jsonObject.getJSONArray("items")
+                for (i in 0 until movieArray.length()) {
+                    val rankOfMovie = movieArray.getJSONObject(i)
+                    posterList.add(rankOfMovie.getString("image"))
+                    movieNameList.add(rankOfMovie.getString("title"))
+                }
+                val adapter = PopularMoviesAdapter(posterList, movieNameList)
+                rvMovie.adapter = adapter
+                rvMovie.layoutManager =
+                    LinearLayoutManager(this@MainActivity, RecyclerView.HORIZONTAL, false)
+                rvMovie.addItemDecoration(DividerItemDecoration(this@MainActivity, LinearLayoutManager.HORIZONTAL))
+            }
+            override fun onFailure(
+                statusCode: Int,
+                headers: Headers?,
+                errorResponse: String,
+                throwable: Throwable?
+            ) {
+                Log.d("Character Error", errorResponse)
+            }
+        }]
+        /* Coming Soon Part
+        val ComingSoonURL = "https://imdb-api.com/en/API/ComingSoon/" + iMDBkey
+        client[ComingSoonURL, object : JsonHttpResponseHandler() {
+            override fun onSuccess(
+                statusCode: Int,
+                headers: Headers,
+                json: JsonHttpResponseHandler.JSON
+            ) {
+                val comingSoonMovieArray = json.jsonObject.getJSONArray("items")
+                for (i in 0 until comingSoonMovieArray.length()) {
+                    val comingSoonItems = comingSoonMovieArray.getJSONObject(i)
+                    comingSoonPosterList.add(comingSoonItems.getString("image"))
+                    comingSoonMovieNameList.add(comingSoonItems.getString("title"))
+                }
+                val adapter = ComingSoonMoviesAdapter(comingSoonPosterList, comingSoonMovieNameList)
+                rvMovie2.adapter = adapter
+                rvMovie2.layoutManager =
+                    LinearLayoutManager(this@MainActivity, RecyclerView.HORIZONTAL, false)
+            }
+
+            override fun onFailure(
+                statusCode: Int,
+                headers: Headers?,
+                errorResponse: String,
+                throwable: Throwable?
+            ) {
+                Log.d("Character Error", errorResponse)
+            }
+        }] */
 }

@@ -1,4 +1,4 @@
-# AND101 Milestone 1 - **ScreenSync**
+# AND101 Milestone 2 - **ScreenSync**
 
 Submitted by:
 - **Suharta Rudra**
@@ -14,6 +14,8 @@ This document provides an overview, project spec, and wireframes for our team's 
 
 If we had to describe this milestone in three (3) emojis, they would be: **emojis here**
 
+
+
 ## Milestone Requirements
 
 <!-- Please be sure to change the [ ] to [x] for any features you completed.  If a feature is not checked [x], you might miss the points for that item! -->
@@ -22,6 +24,22 @@ The following REQUIRED features are completed:
 
 - [x] Creation of GitHub Organization and Group Project Repo
 - [x] Updated Course Portal group info with Group Name and App Description
+- [x] Checked off 2+ completed features
+- [x] 2+ GIFs of build progress
+
+- [x] Our 🎥 Demo Video
+- [x] We have also added the Demo Video Link to the Group Info Form on the course portal.
+
+The following EXTRA features are implemented:
+
+- [ ] List anything else that you added to improve your submission!
+
+## 🎥 Demo Video
+
+Here's a video that demos all of the app's implemented features:
+YoutubeLink: https://youtu.be/m5xUH0EKI74
+<img src='https://youtu.be/m5xUH0EKI74.gif' title='Video Demo' width='' alt='Video Demo' />
+
 
 The following REQUIRED files are included:
 

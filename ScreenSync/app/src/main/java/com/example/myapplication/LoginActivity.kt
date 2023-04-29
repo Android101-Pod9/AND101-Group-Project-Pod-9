@@ -42,7 +42,6 @@ class LoginActivity : AppCompatActivity() {
         toSignUp.setOnClickListener() {
             val intent = Intent(this, SignUpActivity::class.java)
             startActivity(intent)
-
         }
 
         guest.setOnClickListener() {

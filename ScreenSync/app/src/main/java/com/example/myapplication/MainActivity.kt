@@ -1,8 +1,13 @@
 package com.example.myapplication
 
+import android.app.Fragment
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Button
+import android.widget.ImageButton
+//import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -11,6 +16,7 @@ import com.codepath.asynchttpclient.callback.JsonHttpResponseHandler
 import okhttp3.Headers
 
 class MainActivity : AppCompatActivity() {
+    private lateinit var watchlistButton : Button
     private lateinit var movieNameList: MutableList<String>
     private lateinit var posterList: MutableList<String>
     private lateinit var comingSoonMovieNameList: MutableList<String>
@@ -21,6 +27,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        watchlistButton = findViewById(R.id.watchlist_icon)
         movieNameList = mutableListOf()
         posterList = mutableListOf()
         comingSoonPosterList = mutableListOf()
@@ -30,12 +38,16 @@ class MainActivity : AppCompatActivity() {
         getMovieURL()
         Log.d("getMovieURL", "movie poster URL set")
 
+        watchlistButton.setOnClickListener(){
+            val intent = Intent(this, WatchList::class.java)
+            startActivity(intent)
+        }
 
     }
 
     private fun getMovieURL() {
         val client = AsyncHttpClient()
-        val iMDBkey = "k_wcieb5la"
+        val iMDBkey = "k_uv3vgmx4"
         val url = "https://imdb-api.com/en/API/MostPopularMovies/" + iMDBkey
         client[url, object : JsonHttpResponseHandler() {
             override fun onSuccess(
@@ -64,7 +76,7 @@ class MainActivity : AppCompatActivity() {
                 Log.d("Character Error", errorResponse)
             }
         }]
-         //Coming Soon Part
+        //Coming Soon Part
         val ComingSoonURL = "https://imdb-api.com/en/API/ComingSoon/" + iMDBkey
         client[ComingSoonURL, object : JsonHttpResponseHandler() {
             override fun onSuccess(
@@ -80,8 +92,7 @@ class MainActivity : AppCompatActivity() {
                 }
                 val adapter = ComingSoonMoviesAdapter(comingSoonPosterList, comingSoonMovieNameList)
                 rvMovie2.adapter = adapter
-                rvMovie2.layoutManager =
-                    LinearLayoutManager(this@MainActivity, RecyclerView.HORIZONTAL, false)
+                rvMovie2.layoutManager = LinearLayoutManager(this@MainActivity, RecyclerView.HORIZONTAL, false)
             }
 
             override fun onFailure(

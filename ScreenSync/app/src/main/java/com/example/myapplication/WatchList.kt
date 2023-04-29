@@ -15,7 +15,7 @@ class WatchList : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         var movie1 = Movie("Titanic", "www.com", "909090", 2023, "x")
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_watch_list)
 
         // Initialize the recycler view
         recyclerView = findViewById(R.id.watchlist_recycler_view)

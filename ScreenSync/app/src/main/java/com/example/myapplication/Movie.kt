@@ -7,5 +7,7 @@ class Movie(
     val year: Int,
     val plot: String
 ) {
-   //
+    override fun toString(): String {
+        return "$title ($year)"
+    }
 }

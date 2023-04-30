@@ -43,7 +43,7 @@ The following EXTRA features are implemented:
 
 Here's a video that demos all of the app's implemented features:
 YoutubeLink: https://youtu.be/m5xUH0EKI74
-<img src='https://youtu.be/m5xUH0EKI74.mp4' title='Video Demo' width='' alt='Video Demo' />
+<img src='https://youtu.be/m5xUH0EKI74' title='Video Demo' width='' alt='Video Demo' />
 
 
 The following REQUIRED files are included:

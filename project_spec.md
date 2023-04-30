@@ -12,7 +12,7 @@
 
 ### Description 
 
-**Description of your app**
+** An app that gives you recommendations for movies that you can watch at a movie theatre. It also allows you to add movies your interested in into a watchlist**
 
 ### App Evaluation
 
@@ -102,10 +102,10 @@ Required Feature
       - there would be a total of 3 pages (list, main, the more info page)
 ~~- **show base list of movies before user searches**~~
     - the main user action would be going back to the home screen after you search, aka you search and the screen changes to the search results but you should be able to click back to go to the home
-- **watchlist page**
-    - have a button at the bottom of the screen that shoes yuo the watchlist
-- **home page**
-    - have a button on the bottom of the screen that shows you the watchlist
+- [x] - **watchlist page**
+    - have a button at the bottom of the screen that shoes you the watchlist
+ - **home page**
+- [x]  - have a button on the bottom of the screen that shows you the watchlist
     - when you search in the "home page" the screen will change to show only the search results 
     -  when you show the search results you should have a back button that you can click to go back to the original home suggestions
 - **detailed info page**
@@ -115,7 +115,7 @@ Required Feature
 
 Stretch Feature
 // leave for later if we decide to add these features
-- PRIORITY STRETCH: LOGIN/SIGN UP PAGE***~~
+- [x] PRIORITY STRETCH: LOGIN/SIGN UP PAGE***~~
 - **notifications when tickets open up**
     - => **list result of user action here**
 - **showing location of the movie theatre**
@@ -159,6 +159,11 @@ For Milestone 2, include **2+ GIFs** of the build process here!
 ![](https://i.imgur.com/8X7r2WG.gif)
 ![](https://i.imgur.com/x3eQQ1w.gif)
 ![](https://i.imgur.com/4Y9wp5M.gif)
+
+Checked Off Features
+- login/sign in page
+- working start page with movie recommendations
+- watchlist activity that can be accessed by user
 
 
 

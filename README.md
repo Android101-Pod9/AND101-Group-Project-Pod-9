@@ -28,6 +28,8 @@ The following REQUIRED features are completed:
 - [x] Creation of GitHub Organization and Group Project Repo
 - [x] Updated Course Portal group info with Group Name and App Description
 - [x] Checked off 2+ completed features
+      - [x]   login page
+      - [x]   working main page that shows movie recommendations to user
 - [x] 2+ GIFs of build progress
 
 - [x] Our 🎥 Demo Video
@@ -41,7 +43,7 @@ The following EXTRA features are implemented:
 
 Here's a video that demos all of the app's implemented features:
 YoutubeLink: https://youtu.be/m5xUH0EKI74
-<img src='https://youtu.be/m5xUH0EKI74.gif' title='Video Demo' width='' alt='Video Demo' />
+<img src='https://youtu.be/m5xUH0EKI74.mp4' title='Video Demo' width='' alt='Video Demo' />
 
 
 The following REQUIRED files are included:

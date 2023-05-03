@@ -1,12 +1,19 @@
 package com.example.myapplication
 
 import android.app.Fragment
+import android.content.ClipData
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.Button
 import android.widget.ImageButton
+import android.widget.Toast
+import androidx.appcompat.widget.SearchView
+import androidx.constraintlayout.widget.Group
+import androidx.core.view.isInvisible
+//import android.widget.SearchView
 //import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -21,8 +28,12 @@ class MainActivity : AppCompatActivity() {
     private lateinit var posterList: MutableList<String>
     private lateinit var comingSoonMovieNameList: MutableList<String>
     private lateinit var comingSoonPosterList: MutableList<String>
+    private lateinit var comingSoonGenreList: MutableList<String>
     private lateinit var rvMovie: RecyclerView
     private lateinit var rvMovie2: RecyclerView
+    private lateinit var searchView : SearchView
+    private lateinit var rvSearchResults : RecyclerView
+    private lateinit var movieDisplayGroup : Group
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,10 +44,19 @@ class MainActivity : AppCompatActivity() {
         posterList = mutableListOf()
         comingSoonPosterList = mutableListOf()
         comingSoonMovieNameList = mutableListOf()
+        comingSoonGenreList = mutableListOf()
         rvMovie = findViewById(R.id.Popular_list)
         rvMovie2 = findViewById(R.id.NewlyAdded_list)
+        movieDisplayGroup = findViewById(R.id.display_movie_group)
+
+        searchView = findViewById(R.id.search_bar)
+        searchView.clearFocus()
+        rvSearchResults = findViewById(R.id.search_results)
+
         getMovieURL()
         Log.d("getMovieURL", "movie poster URL set")
+
+        displaySearchScreen(searchView, rvSearchResults, comingSoonMovieNameList)
 
         watchlistButton.setOnClickListener(){
             val intent = Intent(this, WatchList::class.java)
@@ -89,6 +109,7 @@ class MainActivity : AppCompatActivity() {
                     val comingSoonItems = comingSoonMovieArray.getJSONObject(i)
                     comingSoonPosterList.add(comingSoonItems.getString("image"))
                     comingSoonMovieNameList.add(comingSoonItems.getString("title"))
+                    comingSoonGenreList.add(comingSoonItems.getString("genres"))
                 }
                 val adapter = ComingSoonMoviesAdapter(comingSoonPosterList, comingSoonMovieNameList)
                 rvMovie2.adapter = adapter
@@ -105,4 +126,57 @@ class MainActivity : AppCompatActivity() {
             }
         }]
     }
+
+    private fun displaySearchScreen(searchView : SearchView, searchResults : RecyclerView, filteredList: List<String>){
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
+            override fun onQueryTextSubmit(query: String?) : Boolean {
+                searchResults.visibility = View.VISIBLE
+                movieDisplayGroup.visibility = View.GONE
+                return false
+            }
+            override fun onQueryTextChange(newText: String?) : Boolean{
+                if(newText.isNullOrBlank()){
+                    searchResults.visibility = View.GONE
+                    movieDisplayGroup.visibility = View.VISIBLE
+                }
+                else{
+                    searchResults.visibility = View.VISIBLE
+                    FilterList(newText, filteredList)
+                    movieDisplayGroup.visibility = View.GONE
+                }
+
+                return true
+            }
+
+        })
+
+
+    }
+
+    private fun FilterList(newText: String, titleList : List<String>) {
+        var filteredList = arrayListOf<String>()
+        var filteredList2 = arrayListOf<String>()
+        for(i in 0 until titleList.size){
+            //TODO: what you need is the text and from that text check if
+            if(titleList[i].toLowerCase().contains(newText.toLowerCase())){
+                    filteredList.add(titleList[i])
+                    filteredList2.add(comingSoonPosterList[i])
+            }
+           // var genreList = filteredList[i].split(",")
+           // Log.d("Genres", "$genreList")
+        }
+        if(filteredList.isEmpty()){
+            Toast.makeText(this, "No movies meet the criteria", Toast.LENGTH_SHORT).show()
+        }
+        else{
+           val adapter = MovieSearchAdapter(comingSoonPosterList, comingSoonMovieNameList)
+            rvSearchResults.adapter = adapter
+            rvSearchResults.layoutManager = LinearLayoutManager(this@MainActivity)
+
+            adapter.setFilteredList(filteredList,filteredList2)
+
+        }
+
+    }
+
 }

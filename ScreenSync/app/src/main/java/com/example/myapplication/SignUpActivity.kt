@@ -31,9 +31,6 @@ class SignUpActivity : AppCompatActivity() {
         passInput = findViewById(R.id.passInput)
         signupButton = findViewById(R.id.signupButton)
         toLogin = findViewById(R.id.toLogin)
-
-
-
         firebaseAuth = Firebase.auth
 
 
@@ -44,11 +41,7 @@ class SignUpActivity : AppCompatActivity() {
         toLogin.setOnClickListener() {
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
-
-            finish()
         }
-
-
 
     }
 
@@ -63,15 +56,16 @@ class SignUpActivity : AppCompatActivity() {
             return
         }
 
-
         firebaseAuth.createUserWithEmailAndPassword(username, password).addOnCompleteListener(this) {
             if(it.isSuccessful) {
+
+                val intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
                 Toast.makeText(this, "Signup Successful!", Toast.LENGTH_SHORT).show()
-                finish()
+
             } else {
                 Toast.makeText(this, "Signup Failed.", Toast.LENGTH_SHORT).show()
             }
-
         }
 
     }

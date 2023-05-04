@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+    <menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+        <item
+            android:id="@+id/home"
+            android:title="Main"
+            android:icon="@drawable/house_icon"
+
+         />
+        <item
+            android:id="@+id/watchlist"
+            android:title="WatchList"
+            android:icon="@drawable/watchlist_icon"
+            />
+
+        <item
+            android:id="@+id/start"
+            android:title="Start"
+            android:icon="@drawable/sign_in_alt"
+            />
+
+    </menu>
+

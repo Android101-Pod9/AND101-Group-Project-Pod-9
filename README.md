@@ -1,4 +1,4 @@
-# AND101 Milestone 1 - **ScreenSync**
+# AND101 Milestone 2 - **ScreenSync**
 
 Submitted by:
 - **Suharta Rudra**
@@ -6,22 +6,48 @@ Submitted by:
 - **Vishva Koladiya**
 - **Esther Williams**
 
-Time spent: **6** hours spent in total
+Time spent: **23** hours spent in total
 
 ## Summary
 
-This document provides an overview, project spec, and wireframes for our team's capstone project: An app that **short description of your app**
+This document provides an overview, project spec, and wireframes for our team's capstone project: An app that **gives you recommendations for movies that you can watch at a movie theatre. It also allows you to add movies your interested in into a watchlist**
 
-If we had to describe this milestone in three (3) emojis, they would be: **emojis here**
+If we had to describe this milestone in three (3) emojis, they would be: **🍿🎥🎞️**
+
 
 ## Milestone Requirements
 
 <!-- Please be sure to change the [ ] to [x] for any features you completed.  If a feature is not checked [x], you might miss the points for that item! -->
+The following REQUIRED features are completed:
+
+- [x] Assign features to each member of your group
+- [x] Establish a goal time for completing each feature
 
 The following REQUIRED features are completed:
 
 - [x] Creation of GitHub Organization and Group Project Repo
 - [x] Updated Course Portal group info with Group Name and App Description
+- [x] Checked off 2+ completed features
+      - [x]   login page
+      - [x]   working main page that shows movie recommendations to user
+- [x] 2+ GIFs of build progress
+
+- [x] Our 🎥 Demo Video
+- [x] We have also added the Demo Video Link to the Group Info Form on the course portal.
+
+The following EXTRA features are implemented:
+
+- [ ] List anything else that you added to improve your submission!
+
+## 🎥 Demo Video
+
+Here's a video that demos all of the app's implemented features:
+YoutubeLink: https://youtu.be/m5xUH0EKI74
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/m5xUH0EKI74" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+<img src='https://i.imgur.com/PRRroCT.gif' title='Video Demo' width='' alt='Video Demo' />
+
 
 The following REQUIRED files are included:
 

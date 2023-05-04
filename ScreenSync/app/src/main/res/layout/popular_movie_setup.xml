@@ -6,14 +6,14 @@
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="198dp"
-        android:layout_height="203dp" />
+        android:layout_height="220dp" />
 
     <TextView
         android:id="@+id/movieName"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
+        android:layout_width="210dp"
+        android:layout_height="match_parent"
         android:text=""
         android:textSize="15sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 </LinearLayout>

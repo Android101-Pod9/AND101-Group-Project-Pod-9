@@ -8,8 +8,8 @@
 
     <ImageView
         android:id="@+id/search_poster"
-        android:layout_width="198dp"
-        android:layout_height="203dp"
+        android:layout_width="200dp"
+        android:layout_height="245dp"
         android:scaleType="center"
         android:contentDescription="Coming Soon Movie Poster"
         app:layout_constraintStart_toStartOf = "parent"
@@ -18,11 +18,10 @@
 
     <TextView
         android:id ="@+id/movie_title"
-        android:layout_width="150dp"
-        android:layout_height="80dp"
-        app:layout_constraintTop_toTopOf="@id/search_poster"
-        app:layout_constraintLeft_toRightOf="@id/search_poster"/>
-
-
+        android:layout_width="187dp"
+        android:layout_height="78dp"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toRightOf="@id/search_poster"
+        app:layout_constraintTop_toTopOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

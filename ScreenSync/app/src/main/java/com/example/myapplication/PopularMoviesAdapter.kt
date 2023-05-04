@@ -9,7 +9,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 
-class PopularMoviesAdapter (private val posterList: List<String>,private val movieNameList: List<String>): RecyclerView.Adapter<PopularMoviesAdapter.ViewHolder>(){
+class InTheatresMoviesAdapter (private val posterList: List<String>,private val movieNameList: List<String>): RecyclerView.Adapter<InTheatresMoviesAdapter.ViewHolder>(){
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val moviePoster: ImageView
         val nameTextView: TextView

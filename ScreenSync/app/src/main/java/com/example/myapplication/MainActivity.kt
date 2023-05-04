@@ -8,7 +8,6 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Button
-import android.widget.ImageButton
 import android.widget.Toast
 import androidx.appcompat.widget.SearchView
 import androidx.constraintlayout.widget.Group
@@ -23,6 +22,8 @@ import com.codepath.asynchttpclient.callback.JsonHttpResponseHandler
 import okhttp3.Headers
 
 class MainActivity : AppCompatActivity() {
+    private lateinit var allMovieNames : MutableList<String>
+    private lateinit var allMoviePosters : MutableList<String>
     private lateinit var watchlistButton : Button
     private lateinit var movieNameList: MutableList<String>
     private lateinit var posterList: MutableList<String>
@@ -38,7 +39,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
+        allMovieNames = mutableListOf()
+        allMoviePosters = mutableListOf()
         watchlistButton = findViewById(R.id.watchlist_icon)
         movieNameList = mutableListOf()
         posterList = mutableListOf()
@@ -56,7 +58,7 @@ class MainActivity : AppCompatActivity() {
         getMovieURL()
         Log.d("getMovieURL", "movie poster URL set")
 
-        displaySearchScreen(searchView, rvSearchResults, comingSoonMovieNameList)
+        displaySearchScreen(searchView, rvSearchResults, allMovieNames)
 
         watchlistButton.setOnClickListener(){
             val intent = Intent(this, WatchList::class.java)
@@ -68,7 +70,7 @@ class MainActivity : AppCompatActivity() {
     private fun getMovieURL() {
         val client = AsyncHttpClient()
         val iMDBkey = "k_uv3vgmx4"
-        val url = "https://imdb-api.com/en/API/MostPopularMovies/" + iMDBkey
+        val url = "https://imdb-api.com/en/API/InTheaters/" + iMDBkey
         client[url, object : JsonHttpResponseHandler() {
             override fun onSuccess(
                 statusCode: Int,
@@ -80,12 +82,13 @@ class MainActivity : AppCompatActivity() {
                     val rankOfMovie = movieArray.getJSONObject(i)
                     posterList.add(rankOfMovie.getString("image"))
                     movieNameList.add(rankOfMovie.getString("title"))
+                    allMovieNames.add(rankOfMovie.getString("title"))
+                    allMoviePosters.add(rankOfMovie.getString("image"))
                 }
-                val adapter = PopularMoviesAdapter(posterList, movieNameList)
+                val adapter = InTheatresMoviesAdapter(posterList, movieNameList)
                 rvMovie.adapter = adapter
                 rvMovie.layoutManager =
                     LinearLayoutManager(this@MainActivity, RecyclerView.HORIZONTAL, false)
-                rvMovie.addItemDecoration(DividerItemDecoration(this@MainActivity, LinearLayoutManager.HORIZONTAL))
             }
             override fun onFailure(
                 statusCode: Int,
@@ -110,12 +113,13 @@ class MainActivity : AppCompatActivity() {
                     comingSoonPosterList.add(comingSoonItems.getString("image"))
                     comingSoonMovieNameList.add(comingSoonItems.getString("title"))
                     comingSoonGenreList.add(comingSoonItems.getString("genres"))
+                    allMovieNames.add(comingSoonItems.getString("title"))
+                    allMoviePosters.add(comingSoonItems.getString("image"))
                 }
                 val adapter = ComingSoonMoviesAdapter(comingSoonPosterList, comingSoonMovieNameList)
                 rvMovie2.adapter = adapter
                 rvMovie2.layoutManager = LinearLayoutManager(this@MainActivity, RecyclerView.HORIZONTAL, false)
             }
-
             override fun onFailure(
                 statusCode: Int,
                 headers: Headers?,
@@ -126,7 +130,6 @@ class MainActivity : AppCompatActivity() {
             }
         }]
     }
-
     private fun displaySearchScreen(searchView : SearchView, searchResults : RecyclerView, filteredList: List<String>){
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
             override fun onQueryTextSubmit(query: String?) : Boolean {
@@ -147,36 +150,28 @@ class MainActivity : AppCompatActivity() {
 
                 return true
             }
-
         })
-
-
     }
-
     private fun FilterList(newText: String, titleList : List<String>) {
         var filteredList = arrayListOf<String>()
         var filteredList2 = arrayListOf<String>()
-        for(i in 0 until titleList.size){
+        for (i in titleList.indices) {
             //TODO: what you need is the text and from that text check if
-            if(titleList[i].toLowerCase().contains(newText.toLowerCase())){
+            if(titleList[i].lowercase().contains(newText.lowercase())){
                     filteredList.add(titleList[i])
-                    filteredList2.add(comingSoonPosterList[i])
+                    filteredList2.add(allMoviePosters[i])
             }
            // var genreList = filteredList[i].split(",")
            // Log.d("Genres", "$genreList")
         }
-        if(filteredList.isEmpty()){
+        if (filteredList.isEmpty())
             Toast.makeText(this, "No movies meet the criteria", Toast.LENGTH_SHORT).show()
-        }
-        else{
-           val adapter = MovieSearchAdapter(comingSoonPosterList, comingSoonMovieNameList)
+        else {
+           val adapter = MovieSearchAdapter(allMoviePosters, allMovieNames)
             rvSearchResults.adapter = adapter
             rvSearchResults.layoutManager = LinearLayoutManager(this@MainActivity)
 
             adapter.setFilteredList(filteredList,filteredList2)
-
         }
-
     }
-
 }

@@ -5,7 +5,9 @@ class Movie(
     val posterUrl: String,
     val imdbId: String,
     val year: Int,
-    val plot: String
+   // val plot: String
+    val genres:String,
+    val displayinWAtchlist :Boolean
 ) {
     override fun toString(): String {
         return "$title ($year)"

@@ -4,20 +4,40 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import java.util.ArrayList
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 
-class MovieAdapter(private val movieList: List<Movie>) :
+class MovieAdapter(private var movieList: List<Movie>) :
     RecyclerView.Adapter<MovieAdapter.ViewHolder>() {
 
     // Inner class to hold the views for one item in the RecyclerView
-     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+      class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        var movieList : List<Movie>
         val titleTextView: TextView = itemView.findViewById(R.id.title_text_view)
         val posterImageView: ImageView = itemView.findViewById(R.id.poster_image_view)
-        val addButton: Button = itemView.findViewById(R.id.add_button)
+        //val addButton: Button = itemView.findViewById(R.id.add_button)
+
+        init{
+            movieList = ArrayList<Movie>()
+        }
     }
+    fun setMovieWatchlist(movie : Movie){
+        var newList = ArrayList<Movie>(movieList)
+        newList.add(movie)
+        movieList = newList
+        notifyDataSetChanged()
+    }
+
+    fun removeMovie(name : String){
+        for(i in 0 until movieList.size){
+
+        }
+    }
+
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val itemView = LayoutInflater.from(parent.context)
@@ -33,10 +53,11 @@ class MovieAdapter(private val movieList: List<Movie>) :
             .load(movie.posterUrl)
             .into(holder.posterImageView)
 
-        holder.addButton.setOnClickListener {
-            // Add the movie to the watchlist
+        if(movie.displayinWAtchlist == true) {
+//            // Add the movie to the watchlist
             (holder.itemView.context as WatchList).addMovie(movie)
         }
+
     }
 
     override fun getItemCount(): Int {
